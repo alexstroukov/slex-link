@@ -1,0 +1,21 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "javascript.validate.enable": false,
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "search.exclude": {
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/compiled": true,
+        "**/jspm_packages": true
+    },
+
+    // Configure glob patterns of file paths to exclude from file watching. Changing this setting requires a restart. When you experience Code consuming lots of cpu time on startup, you can exclude large folders to reduce the initial load.
+    "files.watcherExclude": {
+        "**/jspm_packages/**": true,
+        "**/bower_components/**": true,
+        "**/node_modules/**": true
+    }
+,
+"typescript.check.workspaceVersion": false
+}

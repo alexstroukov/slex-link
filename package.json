@@ -1,0 +1,17 @@
+{
+  "name": "slex-link",
+  "version": "1.0.0",
+  "description": "Scripts for ALEXAPP",
+  "main": "index.js",
+  "repository": "https://github.com/alexstroukov/slex-link",
+  "scripts": {
+    "link": "node link slex-store"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "4.17.2",
+    "meow": "4.0.0",
+    "ora": "2.0.0"
+  }
+}
