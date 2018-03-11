@@ -48,7 +48,6 @@ function link ({ linkAppName, cleanup, deep, ignore }) {
         if (cleanup) {
           return _.chain(packageNamesToLink)
             .map(({ dependencyName }) => dependencyName)
-            .concat([mainAppName])
             .uniq()
             .map(dependencyName => () => build({ codePath, dependencyName }))
             .reduce((memo, next) => memo.then(next), Promise.resolve())
