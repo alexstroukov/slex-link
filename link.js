@@ -6,18 +6,29 @@ const ora = require('ora')
 const spinner = ora()
 
 function link ({ linkAppName, cleanup, deep, ignore }) {
-  const rootPath = path.resolve(__dirname)
+  const rootPath = process.cwd()
   const mainAppName = _.chain(rootPath)
     .split('/')
-    .takeRight(2)
-    .thru(lastTwo => {
-      const [ first, second ] = lastTwo
-      return second === '/' ? first : second
-    })
+    .takeRight(1)
+    .first()
     .value()
-  const codePath = path.resolve(`../`)
-  const linkAppPath = path.resolve(`../${linkAppName}`)
-  const mainAppPath = path.resolve(`../${mainAppName}`)
+  const codePath = _.chain(rootPath)
+    .split('/')
+    .dropRight(1)
+    .join('/')
+    .value()
+  const linkAppPath = _.chain(rootPath)
+    .split('/')
+    .dropRight(1)
+    .concat([linkAppName])
+    .join('/')
+    .value()
+  const mainAppPath = _.chain(rootPath)
+    .split('/')
+    .dropRight(1)
+    .concat([mainAppName])
+    .join('/')
+    .value()
   return fetchPackagesToLink({ codePath, mainAppName, mainAppPath, linkAppName, linkAppPath, ignore })
     .then(packageNamesToLink => {
       const reinstallAllDependencies = () => {
