@@ -1,11 +1,11 @@
 {
   "name": "slex-link",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Scripts for ALEXAPP",
   "main": "index.js",
   "repository": "https://github.com/alexstroukov/slex-link",
   "bin": {
-    "slex-link" : "./index.js"
+    "slex-link": "./index.js"
   },
   "scripts": {
     "link": "node index"
