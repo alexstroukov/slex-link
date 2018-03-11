@@ -44,6 +44,19 @@ function link ({ linkAppName, cleanup, deep, ignore }) {
           return Promise.resolve()
         }
       }
+      const buildAllDependencies = () => {
+        if (cleanup) {
+          return _.chain(packageNamesToLink)
+            .map(({ dependencyName }) => dependencyName)
+            .concat([mainAppName])
+            .uniq()
+            .map(dependencyName => () => build({ codePath, dependencyName }))
+            .reduce((memo, next) => memo.then(next), Promise.resolve())
+            .value()
+        } else {
+          return Promise.resolve()
+        }
+      }
       const linkAllDependencies = () => _.chain(packageNamesToLink)
         .map(({ dependencyName }) => dependencyName)
         .uniq()
@@ -55,6 +68,7 @@ function link ({ linkAppName, cleanup, deep, ignore }) {
         .reduce((memo, next) => memo.then(next), Promise.resolve())
         .value()
       return reinstallAllDependencies()
+        .then(buildAllDependencies)
         .then(linkAllDependencies)
         .then(linkAllPackages)
     })
@@ -134,6 +148,16 @@ function fetchPackageJson (path) {
       } catch (error) {
         return {}
       }
+    })
+}
+
+function build ({ codePath, dependencyName }) {
+  const command = 'npm run build'
+  const commandText = `[slex-link]: ${dependencyName} => ${command}`
+  spinner.start(commandText)
+  return exec(command, { cwd: `${codePath}/${dependencyName}` })
+    .then(() => {
+      spinner.succeed(commandText)
     })
 }
 
