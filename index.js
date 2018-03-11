@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 const meow = require('meow')
 const _ = require('lodash')
 const link = require('./link')
