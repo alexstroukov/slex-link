@@ -4,6 +4,9 @@
   "description": "Scripts for ALEXAPP",
   "main": "index.js",
   "repository": "https://github.com/alexstroukov/slex-link",
+  "bin": {
+    "slex-link" : "./index.js"
+  },
   "scripts": {
     "link": "node index"
   },
