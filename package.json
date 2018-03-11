@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/alexstroukov/slex-link",
   "scripts": {
-    "link": "node link slex-store"
+    "link": "node index"
   },
   "author": "",
   "license": "ISC",

@@ -5,7 +5,7 @@
 			"name": "Debug Link",
 			"type": "node",
 			"request": "launch",
-			"program": "${workspaceRoot}/link.js",
+			"program": "${workspaceRoot}/index.js",
 			"args": [],
 			"cwd": "${workspaceRoot}",
 			"runtimeArgs": [
