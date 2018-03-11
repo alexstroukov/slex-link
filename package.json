@@ -1,7 +1,7 @@
 {
   "name": "slex-link",
   "version": "1.0.2",
-  "description": "Scripts for ALEXAPP",
+  "description": "Link local projects with npm link.",
   "main": "index.js",
   "repository": "https://github.com/alexstroukov/slex-link",
   "bin": {
