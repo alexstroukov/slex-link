@@ -23,7 +23,7 @@ const cli = meow(`
 		},
 		deep: {
 			type: 'boolean',
-			default: false
+			default: true
 		},
 		ignore: {
 			type: 'string',

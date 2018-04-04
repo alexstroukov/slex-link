@@ -173,7 +173,7 @@ function npmInstall ({ codePath, dependencyName }) {
 
 function addLink ({ codePath, dependencyName }) {
   const command = 'npm link'
-  const commandText = `[slex-link]: ${dependencyName} => ${command}`
+  const commandText = `[slex-link]: linking ${dependencyName}`
   spinner.start(commandText)
   return exec(command, { cwd: `${codePath}/${dependencyName}` })
     .then(() => {
@@ -183,7 +183,7 @@ function addLink ({ codePath, dependencyName }) {
 
 function linkToPackage ({ codePath, packageName, dependencyName }) {
   const command = `npm link ${dependencyName}`
-  const commandText = `[slex-link]: ${packageName} => ${command}`
+  const commandText = `[slex-link]: linking ${dependencyName} to ${packageName}`
   spinner.text = commandText
   return exec(command, { cwd: `${codePath}/${packageName}` })
     .then(() => {
