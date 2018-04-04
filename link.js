@@ -29,7 +29,7 @@ function link ({ linkAppName, cleanup, deep, ignore }) {
     .concat([mainAppName])
     .join('/')
     .value()
-  return fetchPackagesToLink({ codePath, mainAppName, mainAppPath, linkAppName, linkAppPath, ignore })
+  return fetchPackagesToLink({ codePath, mainAppName, mainAppPath, linkAppName, linkAppPath, ignore, deep })
     .then(packageNamesToLink => {
       const reinstallAllDependencies = () => {
         if (cleanup) {
