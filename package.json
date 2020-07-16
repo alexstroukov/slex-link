@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lodash": "4.17.2",
+    "lodash": "4.17.19",
     "meow": "4.0.0",
     "ora": "2.0.0"
   }
